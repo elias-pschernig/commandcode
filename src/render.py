@@ -144,13 +144,13 @@ def redraw_game():
                 move(0 - 32, 0 - 32)
                 rotate(game.ticks * 2 * pi / 60)
                 move(x + 16, y + 16 - 5)
-                color = al_map_rgba_f(0.6, 0.5, 0, 0.75)
+                color = al_map_rgba_f(0.6 * 0.75, 0.5 * 0.75, 0, 0.75)
                 al_draw_tinted_bitmap_region(b, color,
                     0, 64, 64, 64, 0, 0, 0)
             elif c == "W":
                 reset()
                 if game.done: color = al_map_rgba_f(0.5, 0.4, 0, 1)
-                else: color = al_map_rgba_f(0.3, 0, 0.2, 0.5)
+                else: color = al_map_rgba_f(0.3 * 0.5, 0, 0.2 * 0.5, 0.5)
                 al_draw_tinted_bitmap_region(b, color,
                     64, 64, 96, 160, x - 48 + 16, y - 156 + 32, 0)
             x += 32
@@ -172,7 +172,7 @@ def redraw_game():
                 m.x, m.y,
                 ALLEGRO_FLIP_HORIZONTAL if m.left else 0)
     
-    c = al_map_rgba_f(0, 0.5, 0, 0.5)
+    c = al_map_rgba_f(0, 0.5 * 0.5, 0, 0.5)
     reset()
     rotate(pi / 2)
     move(8, 360 + 8)
@@ -199,7 +199,7 @@ def redraw_game():
         game.command_cache = cache_text(al_map_rgba_f(1, 1, 1, 1), 4)
     
     if not game.coding and game.myshas[0].code:
-        color = al_map_rgba_f(1, 0, 0, 0.75)
+        color = al_map_rgba_f(1 * 0.75, 0, 0, 0.75)
         v = game.myshas[0].code.variables
         info = "x=%3d y=%3d z=%3d" % (v["x"], v["y"], v["z"])
         x = 20
@@ -209,7 +209,7 @@ def redraw_game():
             g = game.command_cache.glyphs[c]
             al_draw_tinted_bitmap(g, color, x, y, 0)
     
-    c = al_map_rgba_f(0, 0, 0.5, 0.75)
+    c = al_map_rgba_f(0, 0, 0.5 * 0.75, 0.75)
     cx, cy = game.cursor
     for j in range(4):
         for i in range(25):
@@ -240,7 +240,7 @@ def redraw_menu():
     t = game.ticks
 
     c1 = al_map_rgba_f(0, 0, 0, 0.5)
-    c2 = al_map_rgba_f(0.5, 0, 0, 0.5)
+    c2 = al_map_rgba_f(0.5 * 0.5, 0, 0, 0.5)
     
     color = c2 if game.menu == 0 else c1
     if Base.level_select == 1:

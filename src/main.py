@@ -121,7 +121,7 @@ def main():
             
             c -= random() * 0.4
             if c < 0: c = 0
-            al_put_pixel(x, y, al_map_rgba_f(1, 1, 1, c))
+            al_put_pixel(x, y, al_map_rgba_f(c, c, c, c))
     al_set_target_backbuffer(game.display)
     
     game.command_cache = None
@@ -155,7 +155,7 @@ def main():
 
         prevmenu = game.menu
 
-        if event.type in [ALLEGRO_EVENT_KEY_DOWN, ALLEGRO_EVENT_KEY_REPEAT]:
+        if event.type in [ALLEGRO_EVENT_KEY_CHAR]:
             if game.state == "game":
                 x, y = game.cursor
 
