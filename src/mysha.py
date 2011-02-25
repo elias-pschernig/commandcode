@@ -129,17 +129,20 @@ class Mysha:
         c = self.check(0, 0)
         if c == "X":
             self.dead = True
-            al_play_sample(game.ohnosound, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0)
+            al_play_sample(game.ohnosound, 1, 0, 1,
+                ALLEGRO_PLAYMODE_ONCE, byref(ALLEGRO_SAMPLE_ID()))
         
         elif c == "*":
             self.coins += 1
             self.put(0, 0, " ")
-            al_play_sample(game.yaysound, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0)
+            al_play_sample(game.yaysound, 1, 0, 1,
+                ALLEGRO_PLAYMODE_ONCE, byref(ALLEGRO_SAMPLE_ID()))
         
         elif c == "W":
             game.coins_collected += self.coins
             if self.coins > 0:
-                al_play_sample(game.welldone, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0)
+                al_play_sample(game.welldone, 1, 0, 1,
+                    ALLEGRO_PLAYMODE_ONCE, byref(ALLEGRO_SAMPLE_ID()))
             self.coins = 0
 
     def check(self, x, y):
@@ -164,7 +167,8 @@ class Mysha:
             self.command = self.code.execute(self)
 
             if self.command in game.sounds:
-                al_play_sample(game.sounds[self.command], 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0)
+                al_play_sample(game.sounds[self.command], 1, 0, 1,
+                    ALLEGRO_PLAYMODE_ONCE, byref(ALLEGRO_SAMPLE_ID()))
             
             self.executing = game.ticks
             if self.command == "move":

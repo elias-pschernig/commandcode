@@ -83,7 +83,8 @@ def main():
     al_install_mouse()
     
     welcome = al_load_sample("data/tins2010.ogg")
-    al_play_sample(welcome, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0)
+    al_play_sample(welcome, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE,
+        byref(ALLEGRO_SAMPLE_ID()))
 
     game.art = al_load_bitmap("data/art.png", 0, 0)
     game.shapes = al_load_bitmap("data/shapes.png", 0, 0)
@@ -104,7 +105,8 @@ def main():
     game.menusounds.append(al_load_sample("data/select.ogg"))
 
     game.music = al_load_sample("data/piano.ogg")
-    al_play_sample(game.music, 1, 0, 1, ALLEGRO_PLAYMODE_LOOP, 0)
+    al_play_sample(game.music, 1, 0, 1, ALLEGRO_PLAYMODE_LOOP,
+        byref(ALLEGRO_SAMPLE_ID()))
 
     tw = 512
     th = 8
@@ -260,7 +262,8 @@ def main():
             pass
         
         if game.menu != prevmenu:
-            al_play_sample(game.menusounds[game.menu], 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0)
+            al_play_sample(game.menusounds[game.menu], 1, 0, 1,
+                ALLEGRO_PLAYMODE_ONCE, byref(ALLEGRO_SAMPLE_ID()))
 
     al_uninstall_system()
 
