@@ -352,7 +352,7 @@ Congratulations! You win!
             sy -= dy * 5 / d
             line.start = sx, sy
         
-        self.lines.sort(cmp = lambda l1, l2: cmp(l2.length, l1.length))
+        self.lines.sort(key = lambda l: l.length)
         
         self.myshas = []
         self.coins = 0
